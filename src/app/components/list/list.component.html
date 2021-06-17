@@ -1,0 +1,29 @@
+<div class="home-cont">
+  <div class="search">
+    <input
+      id="filmName"
+      placeholder="Search..."
+      (keyup)="search($event)"
+      autocomplete="off"
+    />
+  </div>
+  <div class="results">
+    <div *ngIf="listFilmToSee.length === 0">
+      <p>No film avaible</p>
+    </div>
+    <div *ngIf="listFilmToSee.length > 0">
+      <div *ngFor="let f of listFilmToSee; let i = index" [attr.data-index]="i">
+        <!--<div class="result-row" (click)="goToDetails(f.imdbID)">
+        <h1>{{ f.Title }}</h1>
+        <p class="preview-plot">{{ f.Plot }}</p>
+      </div>-->
+        <app-list-element
+          [title]="f.Title"
+          [plot]="f.Plot"
+          [cover]="f.Poster"
+          [id]="f.imdbID"
+        ></app-list-element>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+* {
+  top: 0;
+  position: fiexd;
+  width: 100vw;
+  height: 10vh;
+  display: grid;
+  place-items: center;
+  background-color: rgb(16, 22, 22);
+  font-weight: bold;
+  font-size: 50px;
+  color: whitesmoke;
+  overflow: hidden;
+}
+p:hover {
+  cursor: pointer;
+  color: gainsboro;
+}

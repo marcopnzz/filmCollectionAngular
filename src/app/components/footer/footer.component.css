@@ -1,0 +1,10 @@
+* {
+  background-color: black;
+  bottom: 0;
+  position: fixed;
+  height: 7vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  color: whitesmoke;
+}

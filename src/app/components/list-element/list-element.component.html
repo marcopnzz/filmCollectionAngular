@@ -1,0 +1,12 @@
+<div class="result-column" (click)="goToDetails(id)">
+  <img
+    class="cover-image"
+    src="{{ cover }}"
+    alt="Cover not avaible"
+    (error)="noCover()"
+  />
+  <div class="result-row">
+    <h1>{{ title }}</h1>
+    <p class="preview-plot">{{ plot }}</p>
+  </div>
+</div>

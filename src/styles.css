@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+.sr-only {
+  /*Per far sparire (*) vicino a rating component di ng-bootstrap https://stackoverflow.com/questions/59717372/ngbrating-module-showing-abnormality-and-asterisk-angular-8-1-2 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
