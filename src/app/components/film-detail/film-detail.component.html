@@ -1,6 +1,6 @@
-<div class="bg-image" [style.background-image]="bg">
-  <div class="detail-container">
-    <!--<ngb-carousel>
+<div class="bg-image" [style.background-image]="bg"></div>
+<div class="detail-container">
+  <!--<ngb-carousel>
       <ng-template ngbSlide *ngFor="let url of images">
         <div class="picsum-img-wrapper">
           <img [src]="url" alt="" />
@@ -9,105 +9,107 @@
       </ng-template>
     </ngb-carousel>-->
 
-    <!--<ngb-carousel *ngIf="images">
+  <!--<ngb-carousel *ngIf="images">
       <ng-template ngbSlide *ngFor="let image of images">
         <img [src]="image" alt="Random slide" />
       </ng-template>
     </ngb-carousel>-->
-    <img
-      style="margin-top: 30px"
-      src="{{ film.Poster }}"
-      width="200"
-      height="300"
-      alt="coverImage"
-      onerror="src='https://cdn.bookauthority.org/dist/images/book-cover-not-available.6b5a104fa66be4eec4fd16aebd34fe04.png'"
-    />
-    <div class="infos">
-      <h1 class="title">
-        {{ film.Title }}
-      </h1>
-      <p class="plot">{{ film.Plot }}</p>
-      <div class="others">
+  <img
+    style="margin-top: 30px"
+    src="{{ film.Poster }}"
+    width="200"
+    height="300"
+    alt="coverImage"
+    onerror="src='https://cdn.bookauthority.org/dist/images/book-cover-not-available.6b5a104fa66be4eec4fd16aebd34fe04.png'"
+  />
+  <div class="infos border-tond">
+    <h1 class="title">
+      {{ film.Title }}
+    </h1>
+    <p class="plot">{{ film.Plot }}</p>
+    <div class="others">
+      <div class="others-row">
+        <p><b>Released </b>{{ film.Released }}</p>
+        <p><b>Runtime </b>{{ film.Runtime }}</p>
+      </div>
+      <div class="others-row">
+        <p><b>Actors </b>{{ film.Actors }}</p>
+        <p><b>Director </b>{{ film.Director }}</p>
+        <p><b>Writer </b>{{ film.Writer }}</p>
+      </div>
+      <div>
         <div class="others-row">
-          <p><b>Released </b>{{ film.Released }}</p>
-          <p><b>Runtime </b>{{ film.Runtime }}</p>
+          <p><b>Genre </b>{{ film.Genre }}</p>
         </div>
-        <div class="others-row">
-          <p><b>Actors </b>{{ film.Actors }}</p>
-          <p><b>Director </b>{{ film.Director }}</p>
-          <p><b>Writer </b>{{ film.Writer }}</p>
-        </div>
-        <div>
-          <div class="others-row">
-            <p><b>Genre </b>{{ film.Genre }}</p>
+      </div>
+      <div
+        class="rating-cont border-tond"
+        style="padding-top: 40px; margin-top: 30px"
+      >
+        <h2>RATING</h2>
+        <div class="rating">
+          <div class="rating-info">
+            <div class="rating-info-row">
+              <ngb-rating
+                style="font-size: 70px"
+                (rateChange)="voted($event)"
+                [max]="5"
+                [(rate)]="rate"
+                [readonly]="check"
+              ></ngb-rating>
+              <p><b>Give your's</b></p>
+            </div>
+          </div>
+          <div class="rating-info">
+            <div class="rating-info-row">
+              <p>
+                <b>Average </b><br />
+                <b>{{ media.toFixed(1) }}</b
+                >/5 with {{ nRate }} votes
+              </p>
+            </div>
           </div>
         </div>
-        <div class="rating-cont" style="padding-top: 40px; margin-top: 30px">
-          <h2>RATING</h2>
-          <div class="rating">
-            <div class="rating-info">
-              <div class="rating-info-row">
-                <ngb-rating
-                  style="font-size: 70px"
-                  (rateChange)="voted($event)"
-                  [max]="5"
-                  [(rate)]="rate"
-                  [readonly]="check"
-                ></ngb-rating>
-                <p><b>Give your's</b></p>
-              </div>
-            </div>
+      </div>
+      <div class="rating-cont">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 70px;
+          "
+        >
+          <div class="down-rating">
+            <h3>IMDB</h3>
             <div class="rating-info">
               <div class="rating-info-row">
                 <p>
-                  <b>Average </b><br />
-                  <b>{{ media.toFixed(1) }}</b
-                  >/5 with {{ nRate }} votes
+                  <b>{{ film.imdbRating }}</b
+                  >/5 with {{ film.imdbVotes }} votes
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="down-rating">
+            <h3>Others rating</h3>
+            <div class="rating-info">
+              <div class="rating-info-row">
+                <p>
+                  <b>{{ film.imdbRating }}</b
+                  >/5 with {{ film.imdbVotes }} votes
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <div class="rating-cont">
-          <div
-            style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              margin-bottom: 70px;
-            "
-          >
-            <div class="down-rating">
-              <h3>IMDB</h3>
-              <div class="rating-info">
-                <div class="rating-info-row">
-                  <p>
-                    <b>{{ film.imdbRating }}</b
-                    >/5 with {{ film.imdbVotes }} votes
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="down-rating">
-              <h3>Others rating</h3>
-              <div class="rating-info">
-                <div class="rating-info-row">
-                  <p>
-                    <b>{{ film.imdbRating }}</b
-                    >/5 with {{ film.imdbVotes }} votes
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-      <!--<h2>PHOTOS</h2>
+    </div>
+    <!--<h2>PHOTOS</h2>
     <div class="gallery">
       <div *ngFor="let url of images">
         <img style="padding: 10px" src="{{ url }}" width="350" height="250" />
       </div>
     </div>-->
-    </div>
   </div>
 </div>
